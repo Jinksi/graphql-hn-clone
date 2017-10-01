@@ -1,5 +1,5 @@
 # project: cj87uo5zu00j10145glxr5olm
-# version: 23
+# version: 24
 
 type Link implements Node {
   id: ID! @isUnique
