@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql, gql } from 'react-apollo'
+import { allLinksQuery } from './LinkList'
 
 class CreateLink extends Component {
   state = {
@@ -19,6 +20,14 @@ class CreateLink extends Component {
         description,
         url,
         postedById
+      },
+      update: (store, response) => {
+        const data = store.readQuery({ query: allLinksQuery })
+        data.allLinks.splice(0, 0, response.data.createLink)
+        store.writeQuery({
+          query: allLinksQuery,
+          data
+        })
       }
     })
     this.props.history.push('/')
