@@ -36,7 +36,7 @@ class App extends Component {
         <div className='ph3 pv1 background-gray'>
           <Switch>
             <Route exact path='/login' component={(props) => <Login handleLogin={this.handleLogin} {...props} />} />
-            <Route exact path='/create' component={CreateLink} />
+            <Route exact path='/create' component={(props) => <CreateLink userId={this.state.userId} {...props} />} />
             <Route exact path='/' component={LinkList} />
           </Switch>
         </div>
