@@ -37,7 +37,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/login' component={(props) => <Login handleLogin={this.handleLogin} {...props} />} />
             <Route exact path='/create' component={(props) => <CreateLink userId={this.state.userId} {...props} />} />
-            <Route exact path='/' component={LinkList} />
+            <Route exact path='/' component={(props) => <LinkList userId={this.state.userId} {...props} />} />
           </Switch>
         </div>
       </div>

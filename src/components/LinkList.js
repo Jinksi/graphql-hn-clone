@@ -13,8 +13,8 @@ class LinkList extends Component {
 
     const linksToRender = this.props.data.allLinks
 
-    return linksToRender.map(link =>
-      <Link key={link.id} link={link} />
+    return linksToRender.map((link, index) =>
+      <Link key={link.id} index={index} userId={this.props.userId} link={link} />
     )
   }
 }
@@ -26,6 +26,16 @@ const query = gql`
       createdAt
       description
       url
+      postedBy {
+        id
+        name
+      }
+      votes {
+        id
+        user {
+          id
+        }
+      }
     }
   }
 `
